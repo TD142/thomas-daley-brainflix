@@ -8,6 +8,7 @@ console.log(data[0].image);
 class App extends React.Component {
   state = {
     videos: data[0],
+    videosGroup: data,
   };
 
   render() {
@@ -15,7 +16,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
 
-        <Main videos={this.state.videos} />
+        <Main videos={this.state.videos} videosGroup={this.state.videosGroup} />
       </div>
     );
   }
