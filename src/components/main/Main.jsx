@@ -5,12 +5,12 @@ import { Form } from "../Form/Form";
 import { Video } from "../video/video";
 
 export const Main = (props) => {
-  console.log(props.videos.image);
+  console.log(props);
   return (
     <div>
-      <Comments />
-      <Video image={props.videos.image} />
+      <Video video={props.videos} />
       <Form />
+      <Comments video={props.videos.comments} />
     </div>
   );
 };
