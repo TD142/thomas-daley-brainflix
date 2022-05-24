@@ -1,9 +1,12 @@
 .aside {
   &__container {
     display: flex;
+    height: 10rem;
   }
   &__image {
-    width: 20%;
     margin-bottom: 1rem;
+    width: 15rem;
+    height: 10rem;
+    object-fit: cover;
   }
 }
