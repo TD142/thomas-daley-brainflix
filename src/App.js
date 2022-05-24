@@ -1,5 +1,7 @@
 import { NavBar } from "./components/NavBar/NavBar";
 import { Form } from "./components/Form/Form";
+import { Comments } from "./components/Comments/Comments";
+import comments from "./data/video-details.json";
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       </header>
       <main>
         <Form />
+        <Comments comments={comments} />
       </main>
     </div>
   );
