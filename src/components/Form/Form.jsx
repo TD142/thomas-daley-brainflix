@@ -18,7 +18,7 @@ export const Form = () => {
           placeholder="Add a new comment"
         ></textarea>
 
-        <label for="submit" class="form__button-label">
+        <label htmlFor="submit" class="form__button-label">
           <button class="form__button" id="submit" type="submit">
             COMMENT
           </button>

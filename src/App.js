@@ -1,18 +1,14 @@
-import { NavBar } from "./components/NavBar/NavBar";
-import { Form } from "./components/Form/Form";
-import { Comments } from "./components/Comments/Comments";
+import { Header } from "./components/header/Header";
+
 import comments from "./data/video-details.json";
+import { Main } from "./components/main/Main";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <Form />
-        <Comments comments={comments} />
-      </main>
+      <Header />
+
+      <Main comments={comments} />
     </div>
   );
 }

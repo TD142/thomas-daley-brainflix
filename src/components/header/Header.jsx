@@ -1,7 +1,7 @@
-import "./NavBar.scss";
+import "./Header.scss";
 import Logo from "../../assets/images/Logo/BrainFlix-logo.svg";
 
-export const NavBar = () => {
+export const Header = () => {
   return (
     <nav className="nav">
       <img className="nav__image" src={Logo} alt="" />
