@@ -1,11 +1,11 @@
 import { CommentsItem } from "../Commentsitem/Commentsitem";
 
 export const Comments = (props) => {
-  //   return console.log(props.comments);
+  console.log(props.comments[0].comments);
   return props.comments.map((comment) => {
     return (
       <CommentsItem
-        name={comment.name}
+        name={comment.comments}
         commentEntry={comment.comment}
         time={comment.timestamp}
       />
