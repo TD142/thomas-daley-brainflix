@@ -77,10 +77,10 @@
     color: $silver;
     font-weight: bold;
     margin: 0.3rem 0;
-    font-size: 0.813rem;
+    font-size: 0.75rem;
+    line-height: 1.25;
 
     @include tablet {
-      font-size: 0.875rem;
     }
   }
 

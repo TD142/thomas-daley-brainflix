@@ -3,8 +3,9 @@ import Views from "../../assets/images/Icons/views.svg";
 import Likes from "../../assets/images/Icons/likes.svg";
 
 export const Video = (props) => {
-  console.log(props.video.image);
-
+  console.log(props.video);
+  const commentsLength = props.video.comments;
+  // console.log(commentsLength.length);
   return (
     <section className="video">
       <img className="video__image" src={props.video.image} />
@@ -35,6 +36,10 @@ export const Video = (props) => {
           </div>
         </div>
       </div>
+      <article className="video__article">
+        <p className="video__text">{props.video.description}</p>
+        <p className="video__subtitle">{commentsLength.length} Comments</p>
+      </article>
     </section>
   );
 };

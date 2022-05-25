@@ -12,13 +12,9 @@ class App extends React.Component {
     videosGroup: videos,
   };
 
-  // changeVideo = (id) => {
-  //   this.setState({
-
-  //     videos: data
-  //   });
-  //   console.log(id);
-  // };
+  changeVideo = (id) => {
+    this.setState({});
+  };
 
   render() {
     return (
