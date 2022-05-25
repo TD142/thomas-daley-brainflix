@@ -1,8 +1,20 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
 
 .nav {
   margin: 1rem;
+  @include tablet {
+    margin: 2rem;
+  }
+
+  &__outer-container {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
   &__container {
     display: flex;
     background-color: $alabaster;
@@ -22,6 +34,9 @@
       &::placeholder {
         text-indent: 12%;
       }
+      @include tablet {
+        margin: 0;
+      }
     }
   }
 
@@ -30,6 +45,10 @@
     width: 7.813rem;
     display: block;
     margin: 1rem auto;
+
+    @include tablet {
+      margin: 0 6rem 0 0;
+    }
   }
   &__secondary-image {
     height: 40px;
@@ -39,9 +58,12 @@
     background: url(../../assets/images/Mohan-muruge.jpg);
     background-size: cover;
     background-position: -4px;
+    @include tablet {
+      display: none;
+    }
   }
   &__button {
-    background: url(../../assets/images/Icons/search.svg);
+    background: url(../../assets/images/Icons/upload.svg);
     background-repeat: no-repeat;
     background-color: $primary-blue;
 
@@ -50,5 +72,8 @@
     height: 40px;
     border-radius: 4px;
     border-color: $primary-blue;
+    @include tablet {
+      width: 20%;
+    }
   }
 }

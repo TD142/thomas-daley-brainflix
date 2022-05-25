@@ -25,6 +25,7 @@
     @include tablet {
       font-size: 2.063rem;
       line-height: 2.75rem;
+      margin: 2rem 2rem 1.5rem 2rem;
     }
   }
 
@@ -70,12 +71,23 @@
     border-top: 1px solid $mercury;
     border-bottom: 1px solid $mercury;
     margin: 0 1rem;
+    @include tablet {
+      border-top: none;
+    }
   }
 
   &__inner-container {
     display: flex;
     align-items: center;
   }
+
+  &__wrapper {
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   &__article {
     margin: 0 1rem;
   }

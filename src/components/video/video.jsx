@@ -11,11 +11,11 @@ export const Video = (props) => {
       <img className="video__image" src={props.video.image} />
       <h1 className="video__title">{props.video.title}</h1>
       <div className="video__container">
-        <div>
+        <div className="video__wrapper">
           <p className="video__subtitle">By {props.video.channel}</p>
           <p className="video__copy">{props.video.timestamp}</p>
         </div>
-        <div>
+        <div className="video__wrapper">
           <div className="video__inner-container">
             <img
               className="video__secondary-image"
