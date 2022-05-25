@@ -12,7 +12,7 @@ export const Main = (props) => {
       <Video video={props.videos} />
       <Form />
       <Comments video={props.videos.comments} />
-      <Aside videos={props.videosGroup} />
+      <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
     </div>
   );
 };

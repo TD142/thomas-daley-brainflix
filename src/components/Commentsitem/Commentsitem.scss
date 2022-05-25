@@ -37,17 +37,22 @@
   }
 
   &__text {
+    font-size: 0.813rem;
     color: $primary-black;
     font-weight: bold;
     margin-bottom: 0;
   }
 
   &__secondary-text {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
     margin-top: 0;
     word-break: break-word;
   }
 
   &__item {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
     color: $silver;
   }
 

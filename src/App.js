@@ -1,6 +1,7 @@
 import { Header } from "./components/header/Header";
 
 import data from "./data/video-details.json";
+import videos from "./data/videos.json";
 import { Main } from "./components/main/Main";
 import React from "react";
 
@@ -8,15 +9,27 @@ console.log(data[0].image);
 class App extends React.Component {
   state = {
     videos: data[0],
-    videosGroup: data,
+    videosGroup: videos,
   };
+
+  // changeVideo = (id) => {
+  //   this.setState({
+
+  //     videos: data
+  //   });
+  //   console.log(id);
+  // };
 
   render() {
     return (
       <div className="App">
         <Header />
 
-        <Main videos={this.state.videos} videosGroup={this.state.videosGroup} />
+        <Main
+          changeVideo={this.changeVideo}
+          videos={this.state.videos}
+          videosGroup={this.state.videosGroup}
+        />
       </div>
     );
   }

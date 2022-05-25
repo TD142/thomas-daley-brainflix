@@ -7,18 +7,32 @@ export const Video = (props) => {
 
   return (
     <section className="video">
-      <img className="video__image" src={props.video.image} />;
+      <img className="video__image" src={props.video.image} />
       <h1 className="video__title">{props.video.title}</h1>
       <div className="video__container">
         <div>
-          <p>By {props.video.channel}</p>
-          <p>{props.video.timestamp}</p>
+          <p className="video__subtitle">By {props.video.channel}</p>
+          <p className="video__copy">{props.video.timestamp}</p>
         </div>
         <div>
-          <img src={Views} alt="views image" />
-          <p>{props.video.views}</p>
-          <img src={Likes} alt="likes image" />
-          <p>{props.video.likes}</p>
+          <div className="video__inner-container">
+            <img
+              className="video__secondary-image"
+              src={Views}
+              alt="views image"
+            />
+            <p className="video__copy">{props.video.views}</p>
+          </div>
+          <div className="video__inner-container">
+            <img
+              className="video__secondary-image video__secondary-image--margin"
+              src={Likes}
+              alt="likes image"
+            />
+            <p className="video__copy video__copy--margin">
+              {props.video.likes}
+            </p>
+          </div>
         </div>
       </div>
     </section>
