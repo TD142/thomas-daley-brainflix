@@ -8,11 +8,15 @@ export const Video = (props) => {
   console.log(props.video.image);
   return (
     <section className="video">
-      <div
+      {/* <div
         className="video__outer-container"
         style={{ backgroundImage: `url(${props.video.image})` }}
-      ></div>
-
+      ></div> */}
+      <video
+        className="video__player"
+        poster={props.video.image}
+        src=""
+      ></video>
       {/* <img className="video__image" src={props.video.image} /> */}
       <h1 className="video__title">{props.video.title}</h1>
 

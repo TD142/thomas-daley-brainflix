@@ -6,6 +6,13 @@
     width: 100%;
   }
 
+  &__player {
+    width: 100%;
+
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
   &__outer-container {
     height: 60vh;
     background-size: cover;
