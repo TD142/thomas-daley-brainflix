@@ -4,16 +4,25 @@ import { Comments } from "../Comments/Comments";
 import { Form } from "../Form/Form";
 import { Video } from "../video/video";
 import { Aside } from "../aside/Aside";
+import { VideoPlayer } from "../videoPlayer/VideoPlayer";
+import "./Main.scss";
 
 export const Main = (props) => {
   return (
     <div>
-      <Video video={props.videos} />
-      <Form />
-      <Comments video={props.videos.comments} />
-      <aside>
-        <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
-      </aside>
+      <hero>
+        <VideoPlayer video={props.videos} />
+      </hero>
+      <main className="main">
+        <div>
+          <Video video={props.videos} />
+          <Form />
+          <Comments video={props.videos.comments} />
+        </div>
+        <aside>
+          <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
+        </aside>
+      </main>
     </div>
   );
 };

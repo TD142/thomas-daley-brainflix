@@ -10,7 +10,7 @@
 
   @include tablet {
     padding-bottom: 1rem;
-    margin: 0 4rem;
+    margin: 0 2.25rem;
   }
 
   @include desktop {
@@ -88,7 +88,7 @@
     background-color: $primary-blue;
     color: $white;
 
-    border: 1px solid $primary-black;
+    border: 1px solid $primary-blue;
     height: 40px;
     border-radius: 4px;
     margin-bottom: 1rem;

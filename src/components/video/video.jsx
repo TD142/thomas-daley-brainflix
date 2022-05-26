@@ -5,29 +5,18 @@ import Likes from "../../assets/images/Icons/likes.svg";
 export const Video = (props) => {
   const commentsLength = props.video.comments;
   // console.log(commentsLength.length);
+  const time = props.video.timestamp;
+
+  const timeStamp = new Date(time).toLocaleString().split(",")[0];
+
   console.log(props.video.image);
   return (
-    <section className="video">
-      {/* <div
-        className="video__outer-container"
-        style={{ backgroundImage: `url(${props.video.image})` }}
-      ></div> */}
-
-      <video
-        width="320"
-        height="400"
-        controls
-        className="video__player"
-        poster={props.video.image}
-        src=""
-      ></video>
-      {/* <img className="video__image" src={props.video.image} /> */}
+    <section>
       <h1 className="video__title">{props.video.title}</h1>
-
       <div className="video__container">
         <div className="video__wrapper">
           <p className="video__subtitle">By {props.video.channel}</p>
-          <p className="video__copy">{props.video.timestamp}</p>
+          <p className="video__copy">{timeStamp}</p>
         </div>
         <div className="video__wrapper">
           <div className="video__inner-container">
