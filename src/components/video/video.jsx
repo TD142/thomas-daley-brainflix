@@ -3,7 +3,6 @@ import Views from "../../assets/images/Icons/views.svg";
 import Likes from "../../assets/images/Icons/likes.svg";
 
 export const Video = (props) => {
-  console.log(props.video);
   const commentsLength = props.video.comments;
   // console.log(commentsLength.length);
   return (

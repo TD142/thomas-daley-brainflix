@@ -18,11 +18,17 @@ class App extends React.Component {
     // console.log(id);
     // if (id === this.state.videos.id) {
     const selectedVideo = data.filter((data) => {
-      return data.id == id;
+      return data.id === id;
     });
 
-    console.log(selectedVideo[0]);
-    this.setState({ videos: selectedVideo[0] });
+    const removedVideo = videos.filter((video) => {
+      return video.id !== id;
+    });
+
+    console.log(removedVideo);
+
+    // console.log(selectedVideo[0]);
+    this.setState({ videos: selectedVideo[0], videosGroup: removedVideo });
   };
 
   render() {

@@ -1,7 +1,6 @@
 import "./AsideItem.scss";
 
 export const AsideItem = (props) => {
-  console.log(props);
   return (
     <aside>
       <div onClick={props.clickFunction} className="aside__container">

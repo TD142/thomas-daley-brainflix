@@ -6,7 +6,6 @@ import { Video } from "../video/video";
 import { Aside } from "../aside/Aside";
 
 export const Main = (props) => {
-  console.log(props);
   return (
     <div>
       <Video video={props.videos} />

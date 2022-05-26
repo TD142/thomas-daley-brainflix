@@ -3,11 +3,8 @@ import "./Aside.scss";
 
 export const Aside = (props) => {
   const idAdd = props.videos;
-  console.log(idAdd);
-  console.log(idAdd.length);
 
   return props.videos.map((video) => {
-    console.log(video);
     return (
       <AsideItem
         // id={id}
