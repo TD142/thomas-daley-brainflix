@@ -2,7 +2,7 @@ import "./AsideItem.scss";
 
 export const AsideItem = (props) => {
   return (
-    <aside>
+    <article>
       <div onClick={props.clickFunction} className="aside__container">
         <img className="aside__image" src={props.image} alt="" />
         <div className="aside__inner-container">
@@ -10,6 +10,6 @@ export const AsideItem = (props) => {
           <p className="aside__secondary-text">{props.channel}</p>
         </div>
       </div>
-    </aside>
+    </article>
   );
 };

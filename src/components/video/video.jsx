@@ -5,10 +5,17 @@ import Likes from "../../assets/images/Icons/likes.svg";
 export const Video = (props) => {
   const commentsLength = props.video.comments;
   // console.log(commentsLength.length);
+  console.log(props.video.image);
   return (
     <section className="video">
-      <img className="video__image" src={props.video.image} />
+      <div
+        className="video__outer-container"
+        style={{ backgroundImage: `url(${props.video.image})` }}
+      ></div>
+
+      {/* <img className="video__image" src={props.video.image} /> */}
       <h1 className="video__title">{props.video.title}</h1>
+
       <div className="video__container">
         <div className="video__wrapper">
           <p className="video__subtitle">By {props.video.channel}</p>

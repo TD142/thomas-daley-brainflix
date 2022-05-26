@@ -1,12 +1,18 @@
 @font-face {
-  font-family: avenir;
+  font-family: "Avenir";
 
   src: url(../../assets/Font/AvenirNextLTPro-Regular.otf);
-  font-weight: normal;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: avenir;
+  font-family: "Avenir";
+  src: url(../../assets/Font/AvenirNextLTPro-Demi.otf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Avenir";
   src: url(../../assets/Font/AvenirNextLTPro-Bold.otf);
-  font-weight: bold;
+  font-weight: 700;
 }

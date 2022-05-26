@@ -6,6 +6,13 @@
     width: 100%;
   }
 
+  &__outer-container {
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   &__secondary-image {
     width: 1.5rem;
     height: 1rem;
@@ -18,7 +25,7 @@
   &__title {
     font-size: 1.5rem;
     line-height: 2rem;
-    font-weight: bold;
+    font-weight: 600;
     color: $primary-black;
     margin: 1rem;
 
@@ -32,7 +39,7 @@
   &__subtitle {
     font-size: 0.813rem;
     line-height: 1.25rem;
-    font-weight: bold;
+    font-weight: 600;
     color: $primary-black;
     @include tablet {
       font-size: 0.875rem;

@@ -11,7 +11,9 @@ export const Main = (props) => {
       <Video video={props.videos} />
       <Form />
       <Comments video={props.videos.comments} />
-      <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
+      <aside>
+        <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
+      </aside>
     </div>
   );
 };
