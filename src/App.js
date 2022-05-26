@@ -6,12 +6,13 @@ import { Main } from "./components/main/Main";
 import React from "react";
 
 console.log(data);
+const videosOnLoad = videos.slice(1, 9);
 
 console.log(data[0].image);
 class App extends React.Component {
   state = {
     videos: data[0],
-    videosGroup: videos,
+    videosGroup: videosOnLoad,
   };
 
   changeVideo = (id) => {
