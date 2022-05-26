@@ -12,7 +12,11 @@ export const Video = (props) => {
         className="video__outer-container"
         style={{ backgroundImage: `url(${props.video.image})` }}
       ></div> */}
+
       <video
+        width="320"
+        height="400"
+        controls
         className="video__player"
         poster={props.video.image}
         src=""
