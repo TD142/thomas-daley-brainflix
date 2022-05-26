@@ -7,11 +7,12 @@ export const Aside = (props) => {
   console.log(idAdd.length);
 
   return props.videos.map((video) => {
+    console.log(video);
     return (
       <AsideItem
         // id={id}
         clickFunction={() => {
-          props.changeVideo();
+          props.changeVideo(video.id);
         }}
         channel={video.channel}
         title={video.title}
