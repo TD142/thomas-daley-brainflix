@@ -20,6 +20,7 @@ export const Main = (props) => {
           <Comments video={props.videos.comments} />
         </div>
         <aside>
+          <h3 className="aside__title">NEXT VIDEO</h3>
           <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
         </aside>
       </main>

@@ -23,10 +23,9 @@
   &__secondary-image {
     width: 1.5rem;
     height: 1rem;
-    margin-right: 0.3rem;
+    margin-right: 0.5rem;
     &--margin {
-      margin-bottom: 0.7rem;
-
+      margin: 1rem 0.5rem 0 0;
       @include tablet {
         margin: 0;
       }
@@ -52,6 +51,7 @@
     line-height: 1.25rem;
     font-weight: 600;
     color: $primary-black;
+    margin: 0 0 1rem 0;
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
@@ -61,6 +61,7 @@
     font-size: 0.813rem;
     line-height: 1.25rem;
     color: $silver;
+    margin: 0;
 
     @include tablet {
       font-size: 0.875rem;
@@ -68,7 +69,7 @@
     }
 
     &--margin {
-      margin-top: 0;
+      margin: 1rem 0 0 0;
 
       @include tablet {
         margin: 0;
@@ -80,6 +81,7 @@
     font-size: 0.813rem;
     line-height: 1.25rem;
     color: $primary-black;
+    margin: 1rem 0;
 
     @include tablet {
       font-size: 0.875rem;
@@ -92,6 +94,7 @@
     column-gap: 5rem;
     border-top: 1px solid $mercury;
     border-bottom: 1px solid $mercury;
+    padding: 1rem 0;
     margin: 0 1rem;
     @include tablet {
       border-top: none;
