@@ -19,8 +19,8 @@ export const Main = (props) => {
           <Form />
           <Comments video={props.videos.comments} />
         </div>
-        <aside>
-          <h3 className="aside__title">NEXT VIDEO</h3>
+        <aside className="aside">
+          <h3 className="aside__title">NEXT VIDEOS</h3>
           <Aside changeVideo={props.changeVideo} videos={props.videosGroup} />
         </aside>
       </main>
