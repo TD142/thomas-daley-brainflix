@@ -21,7 +21,7 @@
   &__image {
     margin: 1.5rem 1rem 0 0;
 
-    width: 2.25rem;
+    min-width: 2.25rem;
     height: 2.25rem;
     border-radius: 50%;
     background: url(../../assets/images/Mohan-muruge.jpg);
@@ -30,9 +30,9 @@
 
     @include tablet {
       margin: 1.6rem 1rem 0 0;
-      min-width: 3rem;
-      max-width: 3rem;
-      height: 50px;
+      min-width: 2.25rem;
+      max-width: 2.25rem;
+      height: 2.25;
       background-position: -4px;
     }
   }
@@ -85,19 +85,17 @@
   }
 
   &__button {
+    background: url(../../assets/images/Icons/add_comment.svg);
+    background-repeat: no-repeat;
+    background-position: 10px;
     background-color: $primary-blue;
     color: $white;
-
     border: 1px solid $primary-blue;
     height: 40px;
     border-radius: 4px;
     margin-bottom: 1rem;
     width: 100%;
     cursor: pointer;
-
-    &:hover {
-      background: $secondary-black;
-    }
 
     &-label {
       @include tablet {

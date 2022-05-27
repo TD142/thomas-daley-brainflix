@@ -5,9 +5,9 @@
 .aside {
   &__container {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     margin: 1rem 1rem;
-    height: 4.5rem;
+    height: 5.5rem;
 
     &:hover {
       cursor: pointer;
@@ -22,14 +22,23 @@
   }
 
   &__image {
-    min-width: 7rem;
-    max-width: 7rem;
+    width: 10rem;
     height: 100%;
     background: $mercury;
 
     border-radius: 5px;
     object-fit: cover;
   }
+
+  &__title {
+    color: $silver;
+    font-weight: 600;
+    margin: 1rem 0 0 1rem;
+    font-size: 0.813rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
   &__text {
     font-size: 0.813rem;
     color: $primary-black;
