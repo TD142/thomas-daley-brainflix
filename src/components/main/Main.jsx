@@ -4,7 +4,7 @@ import { Comments } from "../Comments/Comments";
 import { Form } from "../Form/Form";
 import { Video } from "../video/video";
 import { Aside } from "../aside/Aside";
-import { VideoPlayer } from "../videoPlayer/VideoPlayer";
+import { VideoPlayer } from "../video-player/VideoPlayer";
 import "./Main.scss";
 
 export const Main = (props) => {
