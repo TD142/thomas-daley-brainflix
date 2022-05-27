@@ -19,7 +19,7 @@ export const Video = (props) => {
           <p className="video__copy">{timeStamp}</p>
         </div>
         <div className="video__wrapper">
-          <div className="video__inner-container">
+          <div className="video__inner-container video__inner-container--margin">
             <img
               className="video__secondary-image"
               src={Views}
@@ -41,7 +41,9 @@ export const Video = (props) => {
       </div>
       <article className="video__article">
         <p className="video__text">{props.video.description}</p>
-        <p className="video__subtitle">{commentsLength.length} Comments</p>
+        <p className="video__subtitle video__subtitle--margin">
+          {commentsLength.length} Comments
+        </p>
       </article>
     </section>
   );
