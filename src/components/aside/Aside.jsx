@@ -5,7 +5,7 @@ export const Aside = (props) => {
   return props.videos.map((video) => {
     return (
       <AsideItem
-        // id={id}
+        // on click passes video id to app component to use with filter.
         clickFunction={() => {
           props.changeVideo(video.id);
         }}
