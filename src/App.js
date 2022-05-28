@@ -21,7 +21,7 @@ class App extends React.Component {
       return videoOnLoad.id === id;
     });
 
-    const removedVideo = videosOnLoad.filter((videos) => {
+    const removedVideo = videos.filter((videos) => {
       return videos.id !== id;
     });
 
