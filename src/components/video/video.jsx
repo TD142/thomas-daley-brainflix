@@ -11,7 +11,7 @@ export const Video = (props) => {
 
   console.log(props.video.image);
   return (
-    <section>
+    <section className="video">
       <h1 className="video__title">{props.video.title}</h1>
       <div className="video__container">
         <div className="video__wrapper">

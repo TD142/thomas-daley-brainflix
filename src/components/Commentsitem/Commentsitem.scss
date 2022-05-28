@@ -10,15 +10,14 @@
   }
 
   @include desktop {
-    max-width: 1220px;
-    width: 39.6rem;
-    margin: 0rem auto;
-    margin-bottom: 2rem;
+    // max-width: 1220px;
+
+    margin: 0 0 0 8.3rem;
   }
 
   &__container {
     display: flex;
-    border-bottom: 1px solid $mercury;
+    border-top: 1px solid $mercury;
   }
 
   &__outer-wrapper {
@@ -31,26 +30,32 @@
   }
 
   &__text {
+    line-height: 1.25rem;
     font-size: 0.813rem;
     color: $primary-black;
     font-weight: bold;
-    margin-bottom: 0;
+    margin: 1rem 0 0.5rem 0;
 
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+      margin-top: 1.5rem;
     }
   }
 
   &__secondary-text {
     font-size: 0.813rem;
     line-height: 1.25rem;
-    margin-top: 0;
+    margin: 0 0 1rem 0;
     word-break: break-word;
 
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+      margin-bottom: 1.5rem;
+    }
+    @include desktop {
+      margin-right: 2.25rem;
     }
   }
 
@@ -58,10 +63,16 @@
     font-size: 0.813rem;
     line-height: 1.25rem;
     color: $silver;
+    margin: 1rem 0 0 0;
 
     @include tablet {
       font-size: 0.875rem;
       line-height: 1.375rem;
+      margin-top: 1.5rem;
+    }
+
+    @include desktop {
+      margin-right: 2.25rem;
     }
   }
 
@@ -78,6 +89,7 @@
       min-width: 2.5rem;
       max-width: 2.5rem;
       height: 2.5rem;
+      margin: 1.5rem 1.5rem 0 0;
     }
   }
 }

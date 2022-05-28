@@ -6,4 +6,10 @@
   @include desktop {
     display: flex;
   }
+
+  &__wrapper {
+    @include desktop {
+      border-right: 1px solid $mercury;
+    }
+  }
 }
