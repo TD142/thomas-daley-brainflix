@@ -8,6 +8,7 @@ import { VideoPlayer } from "../video-player/VideoPlayer";
 import "./Main.scss";
 
 export const Main = (props) => {
+  console.log(props);
   return (
     <div>
       <VideoPlayer video={props.videos} />
