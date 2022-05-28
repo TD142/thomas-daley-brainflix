@@ -116,7 +116,7 @@ header {
     }
 
     @include tablet {
-      width: 9.7rem;
+      width: 10rem;
 
       &:hover {
         background-color: $secondary-blue;

@@ -9,7 +9,6 @@ export const Video = (props) => {
 
   const timeStamp = new Date(time).toLocaleString().split(",")[0];
 
-  console.log(props.video.image);
   return (
     <section className="video">
       <h1 className="video__title">{props.video.title}</h1>

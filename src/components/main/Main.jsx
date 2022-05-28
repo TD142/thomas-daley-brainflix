@@ -10,9 +10,8 @@ import "./Main.scss";
 export const Main = (props) => {
   return (
     <div>
-      <hero>
-        <VideoPlayer video={props.videos} />
-      </hero>
+      <VideoPlayer video={props.videos} />
+
       <main className="main">
         <div className="main__wrapper">
           <Video video={props.videos} />

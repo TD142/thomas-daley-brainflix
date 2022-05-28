@@ -2,8 +2,6 @@ import { AsideItem } from "./asideitem/AsideItem";
 import "./Aside.scss";
 
 export const Aside = (props) => {
-  const idAdd = props.videos;
-
   return props.videos.map((video) => {
     return (
       <AsideItem
@@ -11,10 +9,10 @@ export const Aside = (props) => {
         clickFunction={() => {
           props.changeVideo(video.id);
         }}
+        key={video.id}
         channel={video.channel}
         title={video.title}
         image={video.image}
-        key={video.title}
       />
     );
   });

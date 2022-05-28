@@ -1,9 +1,6 @@
 import "./VideoPlayer.scss";
 
 export const VideoPlayer = (props) => {
-  const commentsLength = props.video.comments;
-  // console.log(commentsLength.length);
-  console.log(props.video.image);
   return (
     <section className="video-player">
       <div className="video-player__outer-wrapper">

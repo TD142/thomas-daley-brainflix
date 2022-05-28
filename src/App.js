@@ -11,7 +11,7 @@ const videosOnLoad = videos.slice(1, 9);
 console.log(videoOnLoad[0].image);
 class App extends React.Component {
   state = {
-    videos: videoOnLoad[0],
+    video: videoOnLoad[0],
     videosGroup: videosOnLoad,
   };
 
@@ -26,9 +26,7 @@ class App extends React.Component {
       return video.id !== id;
     });
 
-    console.log(removedVideo);
-
-    this.setState({ videos: selectedVideo[0], videosGroup: removedVideo });
+    this.setState({ video: selectedVideo[0], videosGroup: removedVideo });
   };
 
   render() {
@@ -38,7 +36,7 @@ class App extends React.Component {
 
         <Main
           changeVideo={this.changeVideo}
-          videos={this.state.videos}
+          videos={this.state.video}
           videosGroup={this.state.videosGroup}
         />
       </div>
