@@ -2,6 +2,11 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
+header {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .nav {
   margin: 1rem;
   @include tablet {
@@ -85,7 +90,12 @@
         min-width: 2.5rem;
         max-width: 2.5rem;
         height: 2.5rem;
+        margin-left: 2rem;
       }
+    }
+
+    @include desktop {
+      margin-left: 2.4rem;
     }
   }
   &__button {
@@ -106,8 +116,7 @@
     }
 
     @include tablet {
-      width: 10.5rem;
-      margin-right: 1.6rem;
+      width: 9.7rem;
 
       &:hover {
         background-color: $secondary-blue;

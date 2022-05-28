@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .video-player {
+  background: $secondary-black;
   &__image {
     width: 100%;
     aspect-ratio: 16/9;
@@ -10,7 +11,12 @@
   }
 
   &__outer-wrapper {
-    background: black;
+    background: $secondary-black;
+
+    @include desktop {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
   }
 
   &__outer-container {
@@ -19,7 +25,7 @@
     }
 
     @include desktop {
-      margin: 0 12.2rem;
+      margin: 0 11.7rem;
     }
   }
 }

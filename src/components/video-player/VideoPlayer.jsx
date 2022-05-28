@@ -9,8 +9,6 @@ export const VideoPlayer = (props) => {
       <div className="video-player__outer-wrapper">
         <div className="video-player__outer-container">
           <video
-            // width="50%"
-            // height="400"
             controls
             className="video-player__image"
             poster={props.video.image}

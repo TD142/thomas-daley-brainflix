@@ -17,6 +17,7 @@ export const Main = (props) => {
         <div className="main__wrapper">
           <Video video={props.videos} />
           <Form />
+
           <Comments video={props.videos.comments} />
         </div>
         <aside className="aside">
