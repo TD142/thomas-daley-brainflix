@@ -1,11 +1,12 @@
-import { CommentsItem } from "../Commentsitem/Commentsitem";
+import { CommentsItem } from "../comments-item/CommentsItem";
+import uniqid from "uniqid";
+const id = 0;
 
-export const Comments = (props) => {
-  return props.video.map((video) => {
+export const Comments = ({ video }) => {
+  return video.map((video) => {
     return (
       <article className="comments">
         <CommentsItem
-          key={video.id}
           name={video.name}
           commentEntry={video.comment}
           time={video.timestamp}

@@ -1,6 +1,6 @@
 import "./VideoPlayer.scss";
 
-export const VideoPlayer = (props) => {
+export const VideoPlayer = ({ video }) => {
   return (
     <section className="video-player">
       <div className="video-player__outer-wrapper">
@@ -8,7 +8,7 @@ export const VideoPlayer = (props) => {
           <video
             controls
             className="video-player__image"
-            poster={props.video.image}
+            poster={video.image}
             src=""
           ></video>
         </div>

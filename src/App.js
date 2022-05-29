@@ -1,5 +1,5 @@
 import { Header } from "./components/header/Header";
-
+import uniqid from "uniqid";
 import videoOnLoad from "./data/video-details.json";
 import videos from "./data/videos.json";
 import { Main } from "./components/main/Main";
@@ -17,8 +17,8 @@ class App extends React.Component {
   // ** on click event - filters through video array, returns video if it matches the id of the clicked video, then removes video from videos group array by filtering through and only returns videos if value !== selected element id. State is then updated with filtered objects.
 
   changeVideo = (id) => {
-    const selectedVideo = videoOnLoad.filter((videoOnLoad) => {
-      return videoOnLoad.id === id;
+    const selectedVideo = videoOnLoad.filter((videos) => {
+      return videos.id === id;
     });
 
     const removedVideo = videos.filter((videos) => {
