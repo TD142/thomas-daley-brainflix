@@ -3,7 +3,7 @@
 @use "../../../styles/partials/mixins" as *;
 
 .aside {
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.5rem;
 
   @include tablet {
     margin-bottom: 3.25rem;
@@ -26,12 +26,12 @@
       margin: 0 2.25rem 1.5rem 2.25rem;
       display: flex;
       gap: 1rem;
-      margin: 1rem 2.25rem;
+      margin: 0rem 2.25rem 1.5rem 2.25;
       height: 4.4rem;
     }
 
     @include desktop {
-      margin: 0 6.8rem 1.3rem 2.25rem;
+      margin: 0 6.8rem 1.5rem 2.25rem;
     }
   }
 
@@ -76,7 +76,7 @@
 
     @include tablet {
       margin: 0 2.25rem 0 2.25rem;
-      padding: 1.6rem 0rem 0.7rem 0;
+      padding: 1.6rem 0rem 1.6rem 0;
     }
 
     @include desktop {
