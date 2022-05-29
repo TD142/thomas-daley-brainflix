@@ -5,7 +5,6 @@ import { Form } from "../form/Form";
 import { Video } from "../video/video";
 import { Aside } from "../aside/Aside";
 import { VideoPlayer } from "../video-player/VideoPlayer";
-import uniqid from "uniqid";
 import "./Main.scss";
 
 export const Main = ({ videos, videosGroup, changeVideo }) => {

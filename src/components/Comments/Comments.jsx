@@ -1,6 +1,4 @@
 import { CommentsItem } from "../comments-item/CommentsItem";
-import uniqid from "uniqid";
-const id = 0;
 
 export const Comments = ({ video }) => {
   return video.map((video) => {
