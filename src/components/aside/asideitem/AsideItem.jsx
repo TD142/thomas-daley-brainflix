@@ -5,7 +5,7 @@ export const AsideItem = ({ clickFunction, image, title, channel }) => {
     <article>
       <div onClick={clickFunction} className="aside__container">
         <div>
-          <img className="aside__image" src={image} alt="" />
+          <img className="aside__image" src={image} alt="videos preview" />
         </div>
         <div className="aside__inner-container">
           <p className="aside__text">{title}</p>

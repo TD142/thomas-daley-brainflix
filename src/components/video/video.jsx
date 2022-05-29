@@ -19,18 +19,14 @@ export const Video = ({ video }) => {
         </div>
         <div className="video__wrapper">
           <div className="video__inner-container video__inner-container--margin">
-            <img
-              className="video__secondary-image"
-              src={Views}
-              alt="views image"
-            />
+            <img className="video__secondary-image" src={Views} alt="views" />
             <p className="video__copy">{video.views}</p>
           </div>
           <div className="video__inner-container">
             <img
               className="video__secondary-image video__secondary-image--margin"
               src={Likes}
-              alt="likes image"
+              alt="likes"
             />
             <p className="video__copy video__copy--margin">{video.likes}</p>
           </div>
