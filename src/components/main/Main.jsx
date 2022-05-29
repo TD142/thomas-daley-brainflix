@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { Comments } from "../comments/Comments";
-import { Form } from "../form/Form";
+import { Comments } from "../Comments/Comments";
+import { Form } from "../Form/Form";
 import { Video } from "../video/video";
 import { Aside } from "../aside/Aside";
 import { VideoPlayer } from "../video-player/VideoPlayer";
