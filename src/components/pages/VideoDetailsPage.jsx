@@ -1,4 +1,3 @@
-import { Header } from "../header/Header";
 import videoOnLoad from "../../data/video-details.json";
 import videos from "../../data/videos.json";
 import { Main } from "../main/Main";
@@ -31,8 +30,6 @@ class VideoDetailsPage extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
-
         <Main
           changeVideo={this.changeVideo}
           videos={this.state.video}
