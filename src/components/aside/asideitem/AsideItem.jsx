@@ -1,17 +1,21 @@
 import "./AsideItem.scss";
+import { Link } from "react-router-dom";
 
-export const AsideItem = ({ clickFunction, image, title, channel }) => {
+export const AsideItem = ({ clickFunction, image, title, channel, id }) => {
+  // console.log(id);
   return (
-    <article>
-      <div onClick={clickFunction} className="aside__container">
-        <div>
-          <img className="aside__image" src={image} alt="videos preview" />
+    <Link to={"/videos/" + id}>
+      <article>
+        <div onClick={clickFunction} className="aside__container">
+          <div>
+            <img className="aside__image" src={image} alt="videos preview" />
+          </div>
+          <div className="aside__inner-container">
+            <p className="aside__text">{title}</p>
+            <p className="aside__secondary-text">{channel}</p>
+          </div>
         </div>
-        <div className="aside__inner-container">
-          <p className="aside__text">{title}</p>
-          <p className="aside__secondary-text">{channel}</p>
-        </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 };

@@ -11,7 +11,7 @@ export const Aside = ({ changeVideo, videosGroup }) => {
         clickFunction={() => {
           changeVideo(video.id);
         }}
-        key={video.id}
+        id={video.id}
         channel={video.channel}
         title={video.title}
         image={video.image}

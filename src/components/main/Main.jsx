@@ -7,6 +7,7 @@ import { VideoPlayer } from "../video-player/VideoPlayer";
 import "./Main.scss";
 
 export const Main = ({ videos, videosGroup, changeVideo }) => {
+  // console.log(selectedVideo);
   return (
     <div>
       <VideoPlayer video={videos} />
