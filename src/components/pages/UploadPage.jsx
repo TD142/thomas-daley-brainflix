@@ -1,3 +1,9 @@
+import { UploadForm } from "../uploadform/UploadForm";
+
 export const UploadPage = () => {
-  return;
+  return (
+    <main>
+      <UploadForm />
+    </main>
+  );
 };

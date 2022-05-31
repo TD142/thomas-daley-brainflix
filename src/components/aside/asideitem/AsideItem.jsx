@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const AsideItem = ({ clickFunction, image, title, channel, id }) => {
   // console.log(id);
   return (
-    <Link to={"/videos/" + id}>
+    <Link className="aside__link" to={"/videos/" + id}>
       <article>
         <div onClick={clickFunction} className="aside__container">
           <div>

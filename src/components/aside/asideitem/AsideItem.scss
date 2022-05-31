@@ -46,6 +46,10 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__image {
     width: 6.6rem;
     height: 100%;
@@ -89,6 +93,7 @@
     color: $primary-black;
     font-weight: 600;
     margin: 0;
+    text-decoration: none;
 
     @include tablet {
       font-size: 0.875rem;
@@ -99,7 +104,7 @@
   &__secondary-text {
     font-size: 0.813rem;
     line-height: 1rem;
-
+    color: $primary-black;
     margin: 0;
     word-break: break-word;
 
