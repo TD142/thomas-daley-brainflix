@@ -6,18 +6,18 @@ import { Aside } from "../aside/Aside";
 import { VideoPlayer } from "../video-player/VideoPlayer";
 import "./Main.scss";
 
-export const Main = ({ videos, videosGroup, changeVideo }) => {
+export const Main = ({ selectedVideo, videosGroup, changeVideo }) => {
   // console.log(selectedVideo);
   return (
     <div>
-      <VideoPlayer video={videos} />
+      <VideoPlayer video={selectedVideo} />
 
       <main className="main">
         <div className="main__wrapper">
-          <Video video={videos} />
+          <Video video={selectedVideo} />
           <Form />
 
-          <Comments video={videos.comments} />
+          <Comments video={selectedVideo.comments} />
         </div>
         <aside className="aside">
           <h3 className="aside__title">NEXT VIDEOS</h3>
