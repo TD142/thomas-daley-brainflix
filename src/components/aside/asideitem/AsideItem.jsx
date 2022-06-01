@@ -6,7 +6,7 @@ export const AsideItem = ({ clickFunction, image, title, channel, id }) => {
   return (
     <Link className="aside__link" to={"/videos/" + id}>
       <article>
-        <div onClick={clickFunction} className="aside__container">
+        <div className="aside__container">
           <div>
             <img className="aside__image" src={image} alt="videos preview" />
           </div>

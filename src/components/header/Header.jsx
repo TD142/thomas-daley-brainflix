@@ -8,7 +8,12 @@ export const Header = () => {
       <nav className="nav">
         <div className="nav__outer-container">
           <Link to="/">
-            <img className="nav__image" src={Logo} alt="BrainFlix Logo" />
+            <img
+              // onClick={ClickHandler}
+              className="nav__image"
+              src={Logo}
+              alt="BrainFlix Logo"
+            />
           </Link>
           <div className="nav__container">
             <div className="nav__wrapper">

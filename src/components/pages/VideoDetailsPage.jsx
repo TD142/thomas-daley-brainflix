@@ -3,11 +3,18 @@ import { API_URL } from "../../data/Api";
 import { API_KEY } from "../../data/Api";
 import axios from "axios";
 import React from "react";
+import { defaultVideoID } from "../../data/Api";
 
 class VideoDetailsPage extends React.Component {
   state = {
     selectedVideo: null,
     videosGroup: [],
+  };
+
+  onSubmitHandler = (event) => {
+    event.preventDefault();
+
+    alert("hello!");
   };
 
   getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}${API_KEY}`);
@@ -24,16 +31,18 @@ class VideoDetailsPage extends React.Component {
       videosGroup: videosGroup,
     });
   }
-  catch(e) {
-    console.log("populate state", e);
-  }
 
   componentDidMount() {
     this.populateState();
-    // console.log(this.state.props.match.params.id);
+    console.log("component mounted");
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.match.path === "/") {
+      this.getSelectedVideo(defaultVideoID).then((response) =>
+        this.setState({ selectedVideo: response.data })
+      );
+    }
     const videoId = this.props.match.params.videoId;
 
     if (prevProps.match.params.videoId !== videoId) {
@@ -42,18 +51,18 @@ class VideoDetailsPage extends React.Component {
       );
     }
 
-    if (videoId !== undefined) {
-      this.getAllVideos().then((response) => {
-        const videosData = response.data;
-        console.log(videosData);
-        const filteredVideos = videosData.filter((videos) => {
-          return videos.id !== videoId;
-        });
-        console.log(filteredVideos);
+    // // if (videoId !== undefined) {
+    // this.getAllVideos().then((response) => {
+    //   const videosData = response.data;
 
-        this.setState({ videosGroup: filteredVideos });
-      });
-    }
+    //   const filteredVideos = videosData.filter((videos) => {
+    //     return videos.id !== videoId;
+    //   });
+
+    //   this.setState({ videosGroup: filteredVideos });
+    // });
+    // // }
+    console.log("component updated");
   }
 
   render() {
@@ -63,9 +72,10 @@ class VideoDetailsPage extends React.Component {
     return (
       <div className="App">
         <Main
-          changeVideo={this.changeVideo}
+          onSubmitHandler={this.onSubmitHandler}
           selectedVideo={this.state.selectedVideo}
           videosGroup={this.state.videosGroup}
+          videoId={this.state.selectedVideo.id}
         />
       </div>
     );

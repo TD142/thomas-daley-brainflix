@@ -17,18 +17,24 @@
     margin: 0 0 0 2.25rem;
   }
 
+  &__outer-container {
+    border-top: 1px solid $mercury;
+  }
+
   &__title {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
     color: $primary-black;
-    margin: 1rem;
+    margin: 1.3rem 0 1rem 0;
     text-indent: -1px;
 
     @include tablet {
+      border-bottom: 1px solid $mercury;
       font-size: 2.063rem;
       line-height: 2.75rem;
-      margin: 1.5rem 2.25rem 1rem 2.25rem;
+      margin: 1.5rem 2.25rem 2rem 2.25rem;
+      padding-bottom: 1.2rem;
     }
     @include desktop {
       margin-left: 6.8rem;
@@ -36,22 +42,35 @@
   }
 
   &__subtitle {
-    margin-left: 1rem;
+    margin: 0 0 0.4rem 1rem;
     color: $silver;
     font-weight: 600;
 
     font-size: 0.75rem;
     line-height: 1.25;
+
+    @include tablet {
+      margin-left: 2.25rem;
+    }
   }
 
   &__image {
     width: 100%;
     height: 100%;
+
     border-radius: 4px;
     background: $mercury;
     box-sizing: border-box;
     &-wrapper {
-      margin: 0 1rem;
+      margin: 0 0rem 0.6rem 0rem;
+      @include tablet {
+        width: 40%;
+
+        margin: 0 0 0.6rem 0;
+      }
+    }
+
+    @include tablet {
     }
   }
 
@@ -96,7 +115,6 @@
       @include tablet {
         padding-top: 0.5rem;
         margin: 0 2rem 0 0;
-        width: 80%;
 
         font-size: 0.875rem;
       }
@@ -138,6 +156,16 @@
   //     background: $secondary-blue;
   //   }
 
+  &__bottom-container {
+    @include tablet {
+      border-top: 1px solid $mercury;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
   &__button {
     background: url(../../assets/images/Icons/publish.svg);
     background-repeat: no-repeat;
@@ -163,6 +191,7 @@
 
     @include tablet {
       width: 10rem;
+      margin-left: 5rem;
     }
 
     @include desktop {
@@ -178,5 +207,8 @@
     font-weight: 600;
     color: $primary-blue;
     text-align: center;
+    @include tablet {
+      text-align: left;
+    }
   }
 }

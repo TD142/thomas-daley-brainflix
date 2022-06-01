@@ -3,14 +3,13 @@ import "./Aside.scss";
 
 // mapping over videos to display all videos for aside.
 
-export const Aside = ({ changeVideo, videosGroup }) => {
-  return videosGroup.map((video) => {
+export const Aside = ({ videosGroup, videoId }) => {
+  const filteredVideos = videosGroup.filter((videos) => {
+    return videos.id !== videoId;
+  });
+  return filteredVideos.map((video) => {
     return (
       <AsideItem
-        // on click passes video id to app component to use with filter.
-        clickFunction={() => {
-          changeVideo(video.id);
-        }}
         id={video.id}
         channel={video.channel}
         title={video.title}

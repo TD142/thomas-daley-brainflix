@@ -1,8 +1,8 @@
 import "./Form.scss";
 
-export const Form = () => {
+export const Form = ({ onSubmitHandler }) => {
   return (
-    <form id="form" class="form">
+    <form onSubmit={onSubmitHandler} id="form" class="form">
       <div class="form__image"></div>
       <div class="form__container">
         <label class="form__label" for="addComment">

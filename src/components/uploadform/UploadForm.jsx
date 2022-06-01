@@ -1,15 +1,18 @@
 import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 
-export const UploadForm = () => {
+export const UploadForm = ({ clickHandler }) => {
+  console.log({ clickHandler });
   return (
-    <div>
-      <h1 className="uploadform__title">Upload Video</h1>
-      <p className="uploadform__subtitle">VIDEO THUMBNAIL</p>
-      <div className="uploadform__image-wrapper">
-        <img className="uploadform__image" src={THUMBNAIL} alt="" />
-      </div>
-      <form id="form" class="uploadform">
+    <form onSubmit={clickHandler} id="form" class="uploadform">
+      <div className="uploadform__outer-container">
+        <h1 className="uploadform__title">Upload Video</h1>
+        <p className="uploadform__subtitle">VIDEO THUMBNAIL</p>
+        <div className="uploadform__image-wrapper">
+          <img className="uploadform__image" src={THUMBNAIL} alt="" />
+        </div>
+
         <div class="uploadform__container">
           <label class="uploadform__label" for="addComment">
             TITLE YOUR VIDEO
@@ -34,17 +37,25 @@ export const UploadForm = () => {
               required
               placeholder="Add a new comment"
             ></textarea>
-            <div>
+            <div className="uploadform__bottom-container">
               <label htmlFor="submit" class="form__button-label">
-                <button class="uploadform__button" id="submit" type="submit">
+                {/* <Link to={"/"}> */}
+                <button
+                  // onClick={clickHandler}
+                  class="uploadform__button"
+                  id="submit"
+                  type="submit"
+                >
                   PUBLISH
                 </button>
+                {/* </Link> */}
               </label>
+
+              <p className="uploadform__text">CANCEL</p>
             </div>
-            <p className="uploadform__text">CANCEL</p>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };

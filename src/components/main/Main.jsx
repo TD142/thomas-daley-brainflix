@@ -6,8 +6,13 @@ import { Aside } from "../aside/Aside";
 import { VideoPlayer } from "../video-player/VideoPlayer";
 import "./Main.scss";
 
-export const Main = ({ selectedVideo, videosGroup, changeVideo }) => {
-  // console.log(selectedVideo);
+export const Main = ({
+  onSubmitHandler,
+  selectedVideo,
+  videosGroup,
+  changeVideo,
+  videoId,
+}) => {
   return (
     <div>
       <VideoPlayer video={selectedVideo} />
@@ -15,13 +20,13 @@ export const Main = ({ selectedVideo, videosGroup, changeVideo }) => {
       <main className="main">
         <div className="main__wrapper">
           <Video video={selectedVideo} />
-          <Form />
+          <Form onSubmitHandler={onSubmitHandler} />
 
           <Comments video={selectedVideo.comments} />
         </div>
         <aside className="aside">
           <h3 className="aside__title">NEXT VIDEOS</h3>
-          <Aside changeVideo={changeVideo} videosGroup={videosGroup} />
+          <Aside videoId={videoId} videosGroup={videosGroup} />
         </aside>
       </main>
     </div>
