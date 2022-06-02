@@ -11,19 +11,13 @@ class VideoDetailsPage extends React.Component {
     videosGroup: [],
   };
 
-  onSubmitHandler = (event) => {
-    event.preventDefault();
-
-    alert("hello!");
-  };
-
   getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}${API_KEY}`);
   getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
 
   async populateState() {
     const allVideos = await this.getAllVideos();
     const singleVideo = await this.getSelectedVideo(allVideos.data[0].id);
-    const videosGroup = allVideos.data.slice(1, 9);
+    const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
 
     this.setState({
@@ -38,11 +32,15 @@ class VideoDetailsPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // if (this.props.match.path === "/") {
-    //   this.getSelectedVideo(defaultVideoID).then((response) =>
-    //     this.setState({ selectedVideo: response.data })
-    //   );
-    // }
+    console.log(prevProps);
+    console.log(this.props);
+
+    if (this.props.match.path == "/" && prevProps.match.path !== "/") {
+      this.getSelectedVideo(defaultVideoID).then((response) =>
+        this.setState({ selectedVideo: response.data })
+      );
+    }
+
     const videoId = this.props.match.params.videoId;
 
     if (prevProps.match.params.videoId !== videoId) {
@@ -64,6 +62,28 @@ class VideoDetailsPage extends React.Component {
     // // }
     console.log("component updated");
   }
+
+  onSubmitHandler = (event) => {
+    event.preventDefault();
+
+    const submitComment = {
+      name: "User",
+      comment: "This is a test",
+    };
+    console.log(event.target.addComment.value);
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const videoId = this.props.match.params.videoId;
+
+    axios
+      .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
+      .then((response) => {});
+  };
 
   render() {
     if (!this.state.selectedVideo) {

@@ -1,6 +1,5 @@
 import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
-import { Link } from "react-router-dom";
 
 export const UploadForm = ({ clickHandler }) => {
   console.log({ clickHandler });

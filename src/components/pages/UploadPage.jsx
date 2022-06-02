@@ -1,11 +1,19 @@
 import { UploadForm } from "../uploadform/UploadForm";
+import toast from "react-hot-toast";
 
 export const UploadPage = (props) => {
+  const reDirect = () => {
+    props.history.push("/");
+  };
+
   const clickHandler = (event) => {
     event.preventDefault();
-    alert("Upload Complete!");
 
-    props.history.push("/");
+    toast("Upload Complete!");
+    reDirect();
+
+    // setInterval(reDirect, 1000);
+    // }
   };
 
   return (
