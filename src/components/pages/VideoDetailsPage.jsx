@@ -4,6 +4,7 @@ import { API_KEY } from "../../data/Api";
 import axios from "axios";
 import React from "react";
 import { defaultVideoID } from "../../data/Api";
+import "./VideoDetailsPage.scss";
 
 class VideoDetailsPage extends React.Component {
   state = {
@@ -107,7 +108,7 @@ class VideoDetailsPage extends React.Component {
 
   render() {
     if (!this.state.selectedVideo) {
-      return <p>Page Loading...</p>;
+      return <p className="loading">Page Loading...</p>;
     }
     return (
       <div className="App">

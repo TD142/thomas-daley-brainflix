@@ -1,0 +1,12 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/resets" as *;
+
+.loading {
+  color: $primary-black;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5rem;
+}
