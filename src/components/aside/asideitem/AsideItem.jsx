@@ -1,8 +1,7 @@
 import "./AsideItem.scss";
 import { Link } from "react-router-dom";
 
-export const AsideItem = ({ clickFunction, image, title, channel, id }) => {
-  // console.log(id);
+export const AsideItem = ({ image, title, channel, id }) => {
   return (
     <Link className="aside__link" to={"/videos/" + id}>
       <article>

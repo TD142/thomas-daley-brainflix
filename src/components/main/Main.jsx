@@ -22,7 +22,7 @@ export const Main = ({
           <Video video={selectedVideo} />
           <Form onSubmitHandler={onSubmitHandler} />
 
-          <Comments video={selectedVideo.comments} />
+          <Comments comments={selectedVideo.comments} />
         </div>
         <aside className="aside">
           <h3 className="aside__title">NEXT VIDEOS</h3>

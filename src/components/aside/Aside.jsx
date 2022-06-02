@@ -1,7 +1,7 @@
 import { AsideItem } from "./asideitem/AsideItem";
 import "./Aside.scss";
 
-// mapping over videos to display all videos for aside.
+//** mapping over videos, uses filter to compare paramter idea with videosgroup id returning every video other than the selected one.
 
 export const Aside = ({ videosGroup, videoId }) => {
   const filteredVideos = videosGroup.filter((videos) => {

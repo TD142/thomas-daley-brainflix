@@ -11,6 +11,8 @@ class VideoDetailsPage extends React.Component {
     videosGroup: [],
   };
 
+  //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
+
   getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}${API_KEY}`);
   getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
 
@@ -25,6 +27,8 @@ class VideoDetailsPage extends React.Component {
       videosGroup: videosGroup,
     });
   }
+
+  // this function sets paramater selected videos.
 
   async populateIdState() {
     const videoId = this.props.match.params.videoId;
@@ -49,14 +53,16 @@ class VideoDetailsPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
-    console.log(this.props);
+    // sets default page to always be home video when clicking brainflix logo.
 
     if (this.props.match.path == "/" && prevProps.match.path !== "/") {
       this.getSelectedVideo(defaultVideoID).then((response) =>
         this.setState({ selectedVideo: response.data })
       );
+      window.scrollTo(0, 0);
     }
+
+    // compares previous video param to current selected one, changing state to selected video.
 
     const videoId = this.props.match.params.videoId;
 
@@ -64,19 +70,23 @@ class VideoDetailsPage extends React.Component {
       this.getSelectedVideo(videoId).then((response) =>
         this.setState({ selectedVideo: response.data })
       );
+      window.scrollTo(0, 0);
     }
 
     console.log("component updated");
   }
 
+  // ** form submit event adding comment to api.
+
   onSubmitHandler = (event) => {
     event.preventDefault();
+
+    const clearComment = document.getElementById("addComment");
 
     const submitComment = {
       name: "User",
       comment: event.target.addComment.value,
     };
-    console.log(event.target.addComment.value);
 
     const config = {
       headers: {
@@ -88,7 +98,11 @@ class VideoDetailsPage extends React.Component {
 
     axios
       .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
-      .then((response) => {});
+      .then((response) => {
+        this.populateIdState();
+      });
+
+    clearComment.value = "";
   };
 
   render() {
