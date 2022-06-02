@@ -17,8 +17,26 @@
     margin: 0 0 0 2.25rem;
   }
 
-  &__outer-container {
+  &__border {
     border-top: 1px solid $mercury;
+  }
+
+  &__primary-container {
+    @include tablet {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+  }
+
+  &__outer-container {
+    width: 100%;
+  }
+
+  &__wrapper {
+    @include desktop {
+      display: flex;
+      align-items: baseline;
+    }
   }
 
   &__title {
@@ -33,16 +51,15 @@
       border-bottom: 1px solid $mercury;
       font-size: 2.063rem;
       line-height: 2.75rem;
-      margin: 1.5rem 2.25rem 2rem 2.25rem;
-      padding-bottom: 1.2rem;
+      margin: 1.5rem 0 1.8rem 0;
+      padding-bottom: 1.5rem;
     }
     @include desktop {
-      margin-left: 6.8rem;
     }
   }
 
   &__subtitle {
-    margin: 0 0 0.4rem 1rem;
+    margin: 0 0 0.3rem 0;
     color: $silver;
     font-weight: 600;
 
@@ -50,17 +67,21 @@
     line-height: 1.25;
 
     @include tablet {
-      margin-left: 2.25rem;
     }
   }
 
   &__image {
     width: 100%;
     height: 100%;
+    margin-bottom: 0.5rem;
 
     border-radius: 4px;
     background: $mercury;
     box-sizing: border-box;
+
+    @include desktop {
+      width: auto;
+    }
     &-wrapper {
       margin: 0 0rem 0.6rem 0rem;
       @include tablet {
@@ -68,9 +89,13 @@
 
         margin: 0 0 0.6rem 0;
       }
+      @include desktop {
+        margin: 0 1.5rem 0 0;
+      }
     }
 
-    @include tablet {
+    @include desktop {
+      height: 11.2rem;
     }
   }
 
@@ -80,19 +105,13 @@
     width: 100%;
   }
 
-  &__inner-container {
-    // @include tablet {
-    //   display: flex;
-    // }
-  }
-
   &__input {
     width: 100%;
     background: $alabaster;
     border: 1px solid $mercury;
     outline-color: $primary-black;
     border-radius: 4px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     height: 6rem;
     resize: none;
     font-size: 0.85rem;
@@ -107,8 +126,12 @@
     }
 
     &--height {
+      margin-bottom: 1.3rem;
       height: 2.5rem;
       padding-top: 0;
+      @include desktop {
+        margin-bottom: 1.5rem;
+      }
     }
 
     &--resize {
@@ -130,31 +153,13 @@
   &__label {
     color: $silver;
     font-weight: 600;
-    margin: 0.3rem 0;
+    margin: 0 0 0.3rem 0;
     font-size: 0.75rem;
     line-height: 1.25;
 
     @include tablet {
     }
   }
-
-  // &__button {
-  //   background: url(../../assets/images/Icons/add_comment.svg);
-  //   background-repeat: no-repeat;
-  //   background-position: 10px;
-  //   background-color: $primary-blue;
-  //   color: $white;
-  //   border: 1px solid $primary-blue;
-  //   height: 40px;
-  //   border-radius: 4px;
-  //   margin-bottom: 1rem;
-  //   width: 100%;
-  //   cursor: pointer;
-
-  //   &:hover {
-  //     background: url(../../assets/images/Icons/add_comment.svg);
-  //     background: $secondary-blue;
-  //   }
 
   &__bottom-container {
     @include tablet {
@@ -163,6 +168,10 @@
       margin-top: 1.5rem;
       display: flex;
       flex-direction: row-reverse;
+    }
+    @include desktop {
+      margin-top: 1.2rem;
+      padding-top: 1.8rem;
     }
   }
 
@@ -191,15 +200,14 @@
 
     @include tablet {
       width: 10rem;
-      margin-left: 5rem;
+      margin-left: 5.8rem;
     }
 
     @include desktop {
-      margin-right: 2.25rem;
     }
   }
   @include desktop {
-    margin-left: 6.8rem;
+    margin: 0 6.8rem 0 6.8rem;
   }
 
   &__text {

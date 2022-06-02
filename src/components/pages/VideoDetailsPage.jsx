@@ -38,11 +38,11 @@ class VideoDetailsPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.match.path === "/") {
-      this.getSelectedVideo(defaultVideoID).then((response) =>
-        this.setState({ selectedVideo: response.data })
-      );
-    }
+    // if (this.props.match.path === "/") {
+    //   this.getSelectedVideo(defaultVideoID).then((response) =>
+    //     this.setState({ selectedVideo: response.data })
+    //   );
+    // }
     const videoId = this.props.match.params.videoId;
 
     if (prevProps.match.params.videoId !== videoId) {

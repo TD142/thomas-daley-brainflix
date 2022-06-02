@@ -10,11 +10,11 @@ header {
 .nav {
   margin: 1rem;
   @include tablet {
-    margin: 1.5rem 2.25rem 1.5rem 2.25rem;
+    margin: 1.2rem 2.25rem 1.2rem 2.25rem;
   }
 
   @include desktop {
-    margin: 1.5rem 6.8rem 1.5rem 6.8rem;
+    margin: 1.2rem 6.8rem 1.2rem 6.8rem;
   }
 
   &__outer-container {
