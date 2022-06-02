@@ -14,7 +14,7 @@ class VideoDetailsPage extends React.Component {
   getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}${API_KEY}`);
   getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
 
-  async populateState() {
+  async populateHomeState() {
     const allVideos = await this.getAllVideos();
     const singleVideo = await this.getSelectedVideo(allVideos.data[0].id);
     const videosGroup = allVideos.data;
@@ -26,9 +26,26 @@ class VideoDetailsPage extends React.Component {
     });
   }
 
+  async populateIdState() {
+    const videoId = this.props.match.params.videoId;
+
+    const allVideos = await this.getAllVideos();
+    const singleVideo = await this.getSelectedVideo(videoId);
+    const videosGroup = allVideos.data;
+    const selectedVideo = singleVideo.data;
+
+    this.setState({
+      selectedVideo: selectedVideo,
+      videosGroup: videosGroup,
+    });
+  }
+
   componentDidMount() {
-    this.populateState();
-    console.log("component mounted");
+    if (this.props.match.path === "/") {
+      this.populateHomeState();
+    } else {
+      this.populateIdState();
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -49,17 +66,6 @@ class VideoDetailsPage extends React.Component {
       );
     }
 
-    // // if (videoId !== undefined) {
-    // this.getAllVideos().then((response) => {
-    //   const videosData = response.data;
-
-    //   const filteredVideos = videosData.filter((videos) => {
-    //     return videos.id !== videoId;
-    //   });
-
-    //   this.setState({ videosGroup: filteredVideos });
-    // });
-    // // }
     console.log("component updated");
   }
 
@@ -68,7 +74,7 @@ class VideoDetailsPage extends React.Component {
 
     const submitComment = {
       name: "User",
-      comment: "This is a test",
+      comment: event.target.addComment.value,
     };
     console.log(event.target.addComment.value);
 
