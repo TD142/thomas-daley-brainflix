@@ -51,7 +51,6 @@ class VideoDetailsPage extends React.Component {
     } else {
       this.populateIdState();
     }
-    console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
@@ -72,8 +71,6 @@ class VideoDetailsPage extends React.Component {
 
       window.scrollTo(0, 0);
     }
-
-    console.log("component updated");
   }
 
   // ** form submit event adding comment to api.
@@ -95,8 +92,6 @@ class VideoDetailsPage extends React.Component {
     };
 
     const videoId = this.props.match.params.videoId;
-
-    console.log(this.props.match.path);
 
     if (this.props.match.path == "/") {
       axios

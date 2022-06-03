@@ -14,6 +14,7 @@ export const Aside = ({ videosGroup, videoId }) => {
         channel={video.channel}
         title={video.title}
         image={video.image}
+        key={video.id}
       />
     );
   });

@@ -2,7 +2,6 @@ import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
 
 export const UploadForm = ({ submitHandler }) => {
-  console.log({ submitHandler });
   return (
     <div className="uploadform__border">
       <div className="uploadform__primary-container">
@@ -45,12 +44,7 @@ export const UploadForm = ({ submitHandler }) => {
             </div>
             <div className="uploadform__bottom-container">
               <label htmlFor="submit" class="form__button-label">
-                <button
-                  // onClick={clickHandler}
-                  class="uploadform__button"
-                  id="submit"
-                  type="submit"
-                >
+                <button class="uploadform__button" id="submit" type="submit">
                   PUBLISH
                 </button>
               </label>

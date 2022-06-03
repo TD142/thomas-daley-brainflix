@@ -5,7 +5,6 @@ export const Comments = ({ comments, deleteHandler }) => {
   const commentsReverse = commentsClone.reverse();
 
   return commentsReverse.map((comment) => {
-    console.log(comment.id);
     return (
       <article className="comments">
         <CommentsItem
@@ -15,6 +14,7 @@ export const Comments = ({ comments, deleteHandler }) => {
           deleteHandler={() => {
             deleteHandler(comment.id);
           }}
+          key={comment.id}
         />
       </article>
     );
