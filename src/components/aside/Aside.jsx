@@ -1,4 +1,4 @@
-import { AsideItem } from "./asideitem/AsideItem";
+import { AsideItem } from "../asideitem/AsideItem";
 import "./Aside.scss";
 
 //** mapping over videos, uses filter to compare paramter idea with videosgroup id returning every video other than the selected one.
