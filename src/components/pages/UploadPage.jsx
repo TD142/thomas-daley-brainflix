@@ -10,10 +10,8 @@ export const UploadPage = (props) => {
     event.preventDefault();
 
     toast("Upload Complete!");
-    reDirect();
 
-    // setInterval(reDirect, 1000);
-    // }
+    setTimeout(reDirect, 1000);
   };
 
   return (

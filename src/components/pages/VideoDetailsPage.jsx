@@ -9,7 +9,7 @@ import "./VideoDetailsPage.scss";
 class VideoDetailsPage extends React.Component {
   state = {
     selectedVideo: null,
-    videosGroup: [],
+    videosGroup: null,
   };
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
@@ -57,9 +57,8 @@ class VideoDetailsPage extends React.Component {
     // sets default page to always be home video when clicking brainflix logo.
 
     if (this.props.match.path == "/" && prevProps.match.path !== "/") {
-      this.getSelectedVideo(defaultVideoID).then((response) =>
-        this.setState({ selectedVideo: response.data })
-      );
+      this.populateHomeState();
+
       window.scrollTo(0, 0);
     }
 
@@ -68,9 +67,8 @@ class VideoDetailsPage extends React.Component {
     const videoId = this.props.match.params.videoId;
 
     if (prevProps.match.params.videoId !== videoId) {
-      this.getSelectedVideo(videoId).then((response) =>
-        this.setState({ selectedVideo: response.data })
-      );
+      this.populateIdState();
+
       window.scrollTo(0, 0);
     }
 
@@ -97,13 +95,28 @@ class VideoDetailsPage extends React.Component {
 
     const videoId = this.props.match.params.videoId;
 
-    axios
-      .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
-      .then((response) => {
-        this.populateIdState();
-      });
+    console.log(this.props.match.path);
 
-    clearComment.value = "";
+    if (this.props.match.path == "/") {
+      axios
+        .post(
+          `${API_URL}${defaultVideoID}/comments/${API_KEY}`,
+          submitComment,
+          config
+        )
+        .then((response) => {
+          this.populateHomeState();
+        });
+      clearComment.value = "";
+    } else {
+      axios
+        .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
+        .then((response) => {
+          this.populateIdState();
+        });
+
+      clearComment.value = "";
+    }
   };
 
   render() {
