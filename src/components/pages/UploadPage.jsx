@@ -6,7 +6,7 @@ export const UploadPage = (props) => {
     props.history.push("/");
   };
 
-  const clickHandler = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
 
     toast("Upload Complete!");
@@ -16,7 +16,7 @@ export const UploadPage = (props) => {
 
   return (
     <main>
-      <UploadForm clickHandler={clickHandler} />
+      <UploadForm submitHandler={submitHandler} />
     </main>
   );
 };

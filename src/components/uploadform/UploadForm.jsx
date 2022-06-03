@@ -1,12 +1,12 @@
 import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
 
-export const UploadForm = ({ clickHandler }) => {
-  console.log({ clickHandler });
+export const UploadForm = ({ submitHandler }) => {
+  console.log({ submitHandler });
   return (
     <div className="uploadform__border">
       <div className="uploadform__primary-container">
-        <form onSubmit={clickHandler} id="form" class="uploadform">
+        <form onSubmit={submitHandler} id="form" class="uploadform">
           <div className="uploadform__outer-container">
             <h1 className="uploadform__title">Upload Video</h1>
 

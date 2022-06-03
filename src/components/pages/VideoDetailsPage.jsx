@@ -3,7 +3,7 @@ import { API_URL } from "../../data/Api";
 import { API_KEY } from "../../data/Api";
 import axios from "axios";
 import React from "react";
-import { defaultVideoID } from "../../data/Api";
+import { defaultVideoId } from "../../data/Api";
 import "./VideoDetailsPage.scss";
 
 class VideoDetailsPage extends React.Component {
@@ -100,7 +100,7 @@ class VideoDetailsPage extends React.Component {
     if (this.props.match.path == "/") {
       axios
         .post(
-          `${API_URL}${defaultVideoID}/comments/${API_KEY}`,
+          `${API_URL}${defaultVideoId}/comments/${API_KEY}`,
           submitComment,
           config
         )
@@ -119,9 +119,29 @@ class VideoDetailsPage extends React.Component {
     }
   };
 
+  // ** onclick event passes up video comment id and pairs this with match paramater to target video for deletion.
+
+  deleteHandler = (commentId) => {
+    const videoId = this.props.match.params.videoId;
+
+    if (this.props.match.path == "/") {
+      axios
+        .delete(`${API_URL}${defaultVideoId}/comments/${commentId}${API_KEY}`)
+        .then((response) => {
+          this.populateHomeState();
+        });
+    } else {
+      axios
+        .delete(`${API_URL}${videoId}/comments/${commentId}${API_KEY}`)
+        .then((response) => {
+          this.populateIdState();
+        });
+    }
+  };
+
   render() {
     if (!this.state.selectedVideo) {
-      return <p className="loading">Page Loading...</p>;
+      return <p className="loading">Loading...</p>;
     }
     return (
       <div className="App">
@@ -130,6 +150,7 @@ class VideoDetailsPage extends React.Component {
           selectedVideo={this.state.selectedVideo}
           videosGroup={this.state.videosGroup}
           videoId={this.state.selectedVideo.id}
+          deleteHandler={this.deleteHandler}
         />
       </div>
     );

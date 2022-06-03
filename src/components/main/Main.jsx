@@ -10,7 +10,7 @@ export const Main = ({
   onSubmitHandler,
   selectedVideo,
   videosGroup,
-  changeVideo,
+  deleteHandler,
   videoId,
 }) => {
   return (
@@ -22,7 +22,10 @@ export const Main = ({
           <Video video={selectedVideo} />
           <Form onSubmitHandler={onSubmitHandler} />
 
-          <Comments comments={selectedVideo.comments} />
+          <Comments
+            deleteHandler={deleteHandler}
+            comments={selectedVideo.comments}
+          />
         </div>
         <aside className="aside">
           <h3 className="aside__title">NEXT VIDEOS</h3>
