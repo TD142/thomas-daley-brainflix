@@ -51,6 +51,7 @@ class VideoDetailsPage extends React.Component {
     } else {
       this.populateIdState();
     }
+    console.log(this.state);
   }
 
   componentDidUpdate(prevProps) {
