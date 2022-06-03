@@ -14,7 +14,7 @@ export const CommentsItem = ({ time, name, commentEntry, deleteHandler }) => {
         <div className="comments__inner-wrapper">
           <p className="comments__secondary-text">{commentEntry}</p>
           <button onClick={deleteHandler} className="comments__button">
-            delete comment
+            DELETE
           </button>
         </div>
       </div>
