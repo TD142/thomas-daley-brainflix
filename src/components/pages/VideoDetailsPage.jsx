@@ -2,80 +2,111 @@ import { Main } from "../main/Main";
 import { API_URL } from "../../data/Api";
 import { API_KEY } from "../../data/Api";
 import axios from "axios";
-import React from "react";
+
+import React, { useState, useEffect } from "react";
+
 import { defaultVideoId } from "../../data/Api";
 import "./VideoDetailsPage.scss";
 
-class VideoDetailsPage extends React.Component {
-  state = {
-    selectedVideo: null,
-    videosGroup: null,
-  };
+const VideoDetailsPage = (props) => {
+  // state = {
+  //   selectedVideo: null,
+  //   videosGroup: null,
+  // };
+
+  const [selectedVideo, setselectedVideo] = useState(null);
+  const [videosGroup, setvideosGroup] = useState(null);
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
 
-  getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}${API_KEY}`);
-  getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
+  const getSelectedVideo = (videoID) =>
+    axios.get(`${API_URL}${videoID}${API_KEY}`);
+  const getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
 
-  async populateHomeState() {
-    const allVideos = await this.getAllVideos();
-    const singleVideo = await this.getSelectedVideo(allVideos.data[0].id);
+  const populateHomeState = async () => {
+    const allVideos = await getAllVideos();
+    const singleVideo = await getSelectedVideo(allVideos.data[0].id);
     const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
 
-    this.setState({
-      selectedVideo: selectedVideo,
-      videosGroup: videosGroup,
-    });
-  }
+    // this.setState({
+    //   selectedVideo: selectedVideo,
+    //   videosGroup: videosGroup,
+    // });
+
+    setselectedVideo(selectedVideo);
+    setvideosGroup(videosGroup);
+  };
 
   // this function sets paramater selected videos.
 
-  async populateIdState() {
-    const videoId = this.props.match.params.videoId;
+  const populateIdState = async () => {
+    const videoId = props.match.params.videoId;
 
-    const allVideos = await this.getAllVideos();
-    const singleVideo = await this.getSelectedVideo(videoId);
+    const allVideos = await getAllVideos();
+    const singleVideo = await getSelectedVideo(videoId);
     const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
 
-    this.setState({
-      selectedVideo: selectedVideo,
-      videosGroup: videosGroup,
-    });
-  }
+    // this.setState({
+    //   selectedVideo: selectedVideo,
+    //   videosGroup: videosGroup,
+    // });
 
-  componentDidMount() {
-    if (this.props.match.path === "/") {
-      this.populateHomeState();
-    } else {
-      this.populateIdState();
-    }
-  }
+    setselectedVideo(selectedVideo);
+    setvideosGroup(videosGroup);
+  };
 
-  componentDidUpdate(prevProps) {
-    // sets default page to always be home video when clicking brainflix logo.
+  // componentDidMount() {
+  //   if (this.props.match.path === "/") {
+  //     populateHomeState();
+  //   } else {
+  //     populateIdState();
+  //   }
+  // }
 
-    if (this.props.match.path == "/" && prevProps.match.path !== "/") {
-      this.populateHomeState();
+  // useEffect(() => {
+  //   if (props.match.path === "/") {
+  //     populateHomeState();
+  //   } else {
+  //     populateIdState();
+  //   }
+  // }, []);
 
+  useEffect(() => {
+    if (props.match.path == "/") {
+      populateHomeState();
       window.scrollTo(0, 0);
+      return;
     }
 
-    // compares previous video param to current selected one, changing state to selected video.
+    populateIdState();
+    window.scrollTo(0, 0);
+  }, [props.match.params.videoId, props.match.path]);
 
-    const videoId = this.props.match.params.videoId;
+  // componentDidUpdate(prevProps) {
+  //   // sets default page to always be home video when clicking brainflix logo.
 
-    if (prevProps.match.params.videoId !== videoId) {
-      this.populateIdState();
+  //   if (this.props.match.path == "/" && prevProps.match.path !== "/") {
+  //     this.populateHomeState();
 
-      window.scrollTo(0, 0);
-    }
-  }
+  //     window.scrollTo(0, 0);
+  //   }
+
+  //   // compares previous video param to current selected one, changing state to selected video.
+
+  //   const videoId = this.props.match.params.videoId;
+
+  //   if (prevProps.match.params.videoId !== videoId) {
+  //     this.populateIdState();
+
+  //     window.scrollTo(0, 0);
+  //   }
+  // }
 
   // ** form submit event adding comment to api.
 
-  onSubmitHandler = (event) => {
+  const onSubmitHandler = (event) => {
     event.preventDefault();
 
     const clearComment = document.getElementById("addComment");
@@ -91,9 +122,9 @@ class VideoDetailsPage extends React.Component {
       },
     };
 
-    const videoId = this.props.match.params.videoId;
+    const videoId = props.match.params.videoId;
 
-    if (this.props.match.path == "/") {
+    if (props.match.path == "/") {
       axios
         .post(
           `${API_URL}${defaultVideoId}/comments/${API_KEY}`,
@@ -101,14 +132,14 @@ class VideoDetailsPage extends React.Component {
           config
         )
         .then((response) => {
-          this.populateHomeState();
+          populateHomeState();
         });
       clearComment.value = "";
     } else {
       axios
         .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
         .then((response) => {
-          this.populateIdState();
+          populateIdState();
         });
 
       clearComment.value = "";
@@ -117,40 +148,38 @@ class VideoDetailsPage extends React.Component {
 
   // ** onclick event passes up video comment id and pairs this with match paramater to target video for deletion.
 
-  deleteHandler = (commentId) => {
-    const videoId = this.props.match.params.videoId;
+  const deleteHandler = (commentId) => {
+    const videoId = props.match.params.videoId;
 
-    if (this.props.match.path == "/") {
+    if (props.match.path == "/") {
       axios
         .delete(`${API_URL}${defaultVideoId}/comments/${commentId}${API_KEY}`)
         .then((response) => {
-          this.populateHomeState();
+          populateHomeState();
         });
     } else {
       axios
         .delete(`${API_URL}${videoId}/comments/${commentId}${API_KEY}`)
         .then((response) => {
-          this.populateIdState();
+          populateIdState();
         });
     }
   };
 
-  render() {
-    if (!this.state.selectedVideo) {
-      return <p className="loading">Loading...</p>;
-    }
-    return (
-      <div className="App">
-        <Main
-          onSubmitHandler={this.onSubmitHandler}
-          selectedVideo={this.state.selectedVideo}
-          videosGroup={this.state.videosGroup}
-          videoId={this.state.selectedVideo.id}
-          deleteHandler={this.deleteHandler}
-        />
-      </div>
-    );
+  if (!selectedVideo) {
+    return <p className="loading">Loading...</p>;
   }
-}
+  return (
+    <div className="App">
+      <Main
+        onSubmitHandler={onSubmitHandler}
+        selectedVideo={selectedVideo}
+        videosGroup={videosGroup}
+        videoId={selectedVideo.id}
+        deleteHandler={deleteHandler}
+      />
+    </div>
+  );
+};
 
 export default VideoDetailsPage;
