@@ -34,7 +34,7 @@ export const UploadForm = ({ submitHandler }) => {
                 <textarea
                   className="uploadform__input uploadform__input--resize"
                   name="text"
-                  id="addComment"
+                  id="addDescription"
                   cols="30"
                   rows="10"
                   required
