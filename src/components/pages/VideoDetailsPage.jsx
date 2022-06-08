@@ -1,6 +1,5 @@
 import { Main } from "../main/Main";
 import { API_URL } from "../../data/Api";
-import { API_KEY } from "../../data/Api";
 import axios from "axios";
 
 import React, { useState, useEffect } from "react";
@@ -19,9 +18,8 @@ const VideoDetailsPage = (props) => {
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
 
-  const getSelectedVideo = (videoID) =>
-    axios.get(`${API_URL}${videoID}${API_KEY}`);
-  const getAllVideos = () => axios.get(`${API_URL}${API_KEY}`);
+  const getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}`);
+  const getAllVideos = () => axios.get(`${API_URL}`);
 
   const populateHomeState = async () => {
     const allVideos = await getAllVideos();
@@ -126,18 +124,14 @@ const VideoDetailsPage = (props) => {
 
     if (props.match.path == "/") {
       axios
-        .post(
-          `${API_URL}${defaultVideoId}/comments/${API_KEY}`,
-          submitComment,
-          config
-        )
+        .post(`${API_URL}${defaultVideoId}/comments/}`, submitComment, config)
         .then((response) => {
           populateHomeState();
         });
       clearComment.value = "";
     } else {
       axios
-        .post(`${API_URL}${videoId}/comments/${API_KEY}`, submitComment, config)
+        .post(`${API_URL}${videoId}/comments/}`, submitComment, config)
         .then((response) => {
           populateIdState();
         });
@@ -153,13 +147,13 @@ const VideoDetailsPage = (props) => {
 
     if (props.match.path == "/") {
       axios
-        .delete(`${API_URL}${defaultVideoId}/comments/${commentId}${API_KEY}`)
+        .delete(`${API_URL}${defaultVideoId}/comments/${commentId}}`)
         .then((response) => {
           populateHomeState();
         });
     } else {
       axios
-        .delete(`${API_URL}${videoId}/comments/${commentId}${API_KEY}`)
+        .delete(`${API_URL}${videoId}/comments/${commentId}}`)
         .then((response) => {
           populateIdState();
         });
