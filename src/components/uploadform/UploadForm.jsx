@@ -24,6 +24,7 @@ export const UploadForm = ({ submitHandler }) => {
                   type="text"
                   placeholder="Add a title to your video"
                   id="addTitle"
+                  required
                   className="uploadform__input uploadform__input--height "
                 />
 

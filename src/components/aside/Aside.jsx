@@ -7,6 +7,7 @@ export const Aside = ({ videosGroup, videoId }) => {
   const filteredVideos = videosGroup.filter((videos) => {
     return videos.id !== videoId;
   });
+
   return filteredVideos.map((video) => {
     return (
       <AsideItem

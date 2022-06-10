@@ -8,11 +8,6 @@ import { defaultVideoId } from "../../data/Api";
 import "./VideoDetailsPage.scss";
 
 const VideoDetailsPage = (props) => {
-  // state = {
-  //   selectedVideo: null,
-  //   videosGroup: null,
-  // };
-
   const [selectedVideo, setselectedVideo] = useState(null);
   const [videosGroup, setvideosGroup] = useState(null);
 
@@ -26,11 +21,6 @@ const VideoDetailsPage = (props) => {
     const singleVideo = await getSelectedVideo(allVideos.data[0].id);
     const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
-
-    // this.setState({
-    //   selectedVideo: selectedVideo,
-    //   videosGroup: videosGroup,
-    // });
 
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
@@ -46,30 +36,9 @@ const VideoDetailsPage = (props) => {
     const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
 
-    // this.setState({
-    //   selectedVideo: selectedVideo,
-    //   videosGroup: videosGroup,
-    // });
-
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
   };
-
-  // componentDidMount() {
-  //   if (this.props.match.path === "/") {
-  //     populateHomeState();
-  //   } else {
-  //     populateIdState();
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (props.match.path === "/") {
-  //     populateHomeState();
-  //   } else {
-  //     populateIdState();
-  //   }
-  // }, []);
 
   useEffect(() => {
     if (props.match.path == "/") {
@@ -81,26 +50,6 @@ const VideoDetailsPage = (props) => {
     populateIdState();
     window.scrollTo(0, 0);
   }, [props.match.params.videoId, props.match.path]);
-
-  // componentDidUpdate(prevProps) {
-  //   // sets default page to always be home video when clicking brainflix logo.
-
-  //   if (this.props.match.path == "/" && prevProps.match.path !== "/") {
-  //     this.populateHomeState();
-
-  //     window.scrollTo(0, 0);
-  //   }
-
-  //   // compares previous video param to current selected one, changing state to selected video.
-
-  //   const videoId = this.props.match.params.videoId;
-
-  //   if (prevProps.match.params.videoId !== videoId) {
-  //     this.populateIdState();
-
-  //     window.scrollTo(0, 0);
-  //   }
-  // }
 
   // ** form submit event adding comment to api.
 
