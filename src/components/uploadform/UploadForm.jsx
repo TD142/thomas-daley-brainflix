@@ -1,5 +1,6 @@
 import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 
 export const UploadForm = ({ submitHandler }) => {
   return (
@@ -49,8 +50,9 @@ export const UploadForm = ({ submitHandler }) => {
                   PUBLISH
                 </button>
               </label>
-
-              <p className="uploadform__text">CANCEL</p>
+              <Link className="uploadform__link" to="/">
+                <p className="uploadform__text">CANCEL</p>
+              </Link>
             </div>
           </div>
         </form>
