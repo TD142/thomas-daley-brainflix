@@ -124,14 +124,14 @@ const VideoDetailsPage = (props) => {
 
     if (props.match.path == "/") {
       axios
-        .post(`${API_URL}${defaultVideoId}/comments/}`, submitComment, config)
+        .post(`${API_URL}${defaultVideoId}/comments`, submitComment, config)
         .then((response) => {
           populateHomeState();
         });
       clearComment.value = "";
     } else {
       axios
-        .post(`${API_URL}${videoId}/comments/}`, submitComment, config)
+        .post(`${API_URL}${videoId}/comments`, submitComment, config)
         .then((response) => {
           populateIdState();
         });
@@ -143,17 +143,18 @@ const VideoDetailsPage = (props) => {
   // ** onclick event passes up video comment id and pairs this with match paramater to target video for deletion.
 
   const deleteHandler = (commentId) => {
+    console.log(commentId);
     const videoId = props.match.params.videoId;
 
     if (props.match.path == "/") {
       axios
-        .delete(`${API_URL}${defaultVideoId}/comments/${commentId}}`)
+        .delete(`${API_URL}${defaultVideoId}/comments/${commentId}`)
         .then((response) => {
           populateHomeState();
         });
     } else {
       axios
-        .delete(`${API_URL}${videoId}/comments/${commentId}}`)
+        .delete(`${API_URL}${videoId}/comments/${commentId}`)
         .then((response) => {
           populateIdState();
         });
