@@ -1,22 +1,23 @@
-import { Main } from "../main/Main";
-import { API_URL } from "../../data/Api";
+import { Main } from "../../main/Main";
+import { API_URL } from "../../../data/Api";
 import axios from "axios";
-
 import React, { useState, useEffect } from "react";
-
-import { defaultVideoId } from "../../data/Api";
+import { defaultVideoId } from "../../../data/Api";
 import "./VideoDetailsPage.scss";
 
 const VideoDetailsPage = (props) => {
   const [selectedVideo, setselectedVideo] = useState(null);
   const [videosGroup, setvideosGroup] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
 
   const getSelectedVideo = (videoID) => axios.get(`${API_URL}${videoID}`);
+
   const getAllVideos = () => axios.get(`${API_URL}`);
 
   const populateHomeState = async () => {
+    setLoading(false);
     const allVideos = await getAllVideos();
     const singleVideo = await getSelectedVideo(allVideos.data[0].id);
     const videosGroup = allVideos.data;
@@ -24,6 +25,7 @@ const VideoDetailsPage = (props) => {
 
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
+    setLoading(false);
   };
 
   // this function sets paramater selected videos.
@@ -32,12 +34,16 @@ const VideoDetailsPage = (props) => {
     const videoId = props.match.params.videoId;
 
     const allVideos = await getAllVideos();
-    const singleVideo = await getSelectedVideo(videoId);
+    const singleVideo = await getSelectedVideo(videoId).catch((response) => {
+      props.history.push("/error");
+    });
+
     const videosGroup = allVideos.data;
     const selectedVideo = singleVideo.data;
 
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -49,6 +55,8 @@ const VideoDetailsPage = (props) => {
 
     populateIdState();
     window.scrollTo(0, 0);
+
+    console.log(isLoading);
   }, [props.match.params.videoId, props.match.path]);
 
   // ** form submit event adding comment to api.
@@ -113,6 +121,7 @@ const VideoDetailsPage = (props) => {
   if (!selectedVideo) {
     return <p className="loading">Loading...</p>;
   }
+
   return (
     <div className="App">
       <Main

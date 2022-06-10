@@ -1,7 +1,7 @@
-import { UploadForm } from "../uploadform/UploadForm";
+import { UploadForm } from "../../uploadform/UploadForm";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { API_URL } from "../../data/Api";
+import { API_URL } from "../../../data/Api";
 
 export const UploadPage = (props) => {
   const reDirect = () => {

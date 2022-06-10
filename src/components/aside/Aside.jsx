@@ -1,7 +1,8 @@
 import { AsideItem } from "../asideitem/AsideItem";
 import "./Aside.scss";
+import { Redirect } from "react-router-dom";
 
-//** mapping over videos, uses filter to compare paramter idea with videosgroup id returning every video other than the selected one.
+//** mapping over videos, uses filter to compare paramater idea with videosgroup id returning every video other than the selected one.
 
 export const Aside = ({ videosGroup, videoId }) => {
   const filteredVideos = videosGroup.filter((videos) => {
