@@ -8,11 +8,9 @@ import "./VideoDetailsPage.scss";
 const VideoDetailsPage = (props) => {
   const [selectedVideo, setselectedVideo] = useState(null);
   const [videosGroup, setvideosGroup] = useState(null);
-  const [isLoading, setLoading] = useState(true);
   const [formValues, setformValues] = useState({
     comment: "",
   });
-  console.log(formValues.comment);
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
 
@@ -21,7 +19,6 @@ const VideoDetailsPage = (props) => {
   const getAllVideos = () => axios.get(`${API_URL}`);
 
   const populateHomeState = async () => {
-    setLoading(false);
     const allVideos = await getAllVideos();
     const singleVideo = await getSelectedVideo(allVideos.data[0].id);
     const videosGroup = allVideos.data;
@@ -29,7 +26,6 @@ const VideoDetailsPage = (props) => {
 
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
-    setLoading(false);
   };
 
   // this function sets paramater selected videos.
@@ -47,7 +43,6 @@ const VideoDetailsPage = (props) => {
 
     setselectedVideo(selectedVideo);
     setvideosGroup(videosGroup);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -59,8 +54,6 @@ const VideoDetailsPage = (props) => {
 
     populateIdState();
     window.scrollTo(0, 0);
-
-    console.log(isLoading);
   }, [props.match.params.videoId, props.match.path]);
 
   //**  event to setState to match comment input value.
@@ -107,7 +100,6 @@ const VideoDetailsPage = (props) => {
   // ** onclick event passes up video comment id and pairs this with match paramater to target video for deletion.
 
   const deleteHandler = (commentId) => {
-    console.log(commentId);
     const videoId = props.match.params.videoId;
 
     if (props.match.path == "/") {
