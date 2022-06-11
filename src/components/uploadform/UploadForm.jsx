@@ -2,7 +2,13 @@ import "./UploadForm.scss";
 import THUMBNAIL from "../../assets/images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
 
-export const UploadForm = ({ submitHandler }) => {
+export const UploadForm = ({
+  submitHandler,
+  formValues,
+  handleTitleInputChange,
+  handleDescriptionInputChange,
+}) => {
+  console.log(formValues);
   return (
     <div className="uploadform__border">
       <div className="uploadform__primary-container">
@@ -27,6 +33,8 @@ export const UploadForm = ({ submitHandler }) => {
                   id="addTitle"
                   required
                   className="uploadform__input uploadform__input--height "
+                  value={formValues.title}
+                  onChange={handleTitleInputChange}
                 />
 
                 <label class="uploadform__label" for="addComment">
@@ -41,6 +49,8 @@ export const UploadForm = ({ submitHandler }) => {
                   rows="10"
                   required
                   placeholder="Add a description to your video"
+                  value={formValues.description}
+                  onChange={handleDescriptionInputChange}
                 ></textarea>
               </div>
             </div>

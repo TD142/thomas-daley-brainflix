@@ -9,6 +9,10 @@ const VideoDetailsPage = (props) => {
   const [selectedVideo, setselectedVideo] = useState(null);
   const [videosGroup, setvideosGroup] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [formValues, setformValues] = useState({
+    comment: "",
+  });
+  console.log(formValues.comment);
 
   //**  two functions for retrieving API data. First one sets the homepage video + aside videos.
 
@@ -59,17 +63,20 @@ const VideoDetailsPage = (props) => {
     console.log(isLoading);
   }, [props.match.params.videoId, props.match.path]);
 
+  //**  event to setState to match comment input value.
+
+  const handleCommentInputChange = (event) => {
+    setformValues((values) => ({
+      ...values,
+      comment: event.target.value,
+    }));
+  };
   // ** form submit event adding comment to api.
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
     const clearComment = document.getElementById("addComment");
-
-    const submitComment = {
-      name: "User",
-      comment: event.target.addComment.value,
-    };
 
     const config = {
       headers: {
@@ -81,14 +88,14 @@ const VideoDetailsPage = (props) => {
 
     if (props.match.path == "/") {
       axios
-        .post(`${API_URL}${defaultVideoId}/comments`, submitComment, config)
+        .post(`${API_URL}${defaultVideoId}/comments`, formValues, config)
         .then((response) => {
           populateHomeState();
         });
       clearComment.value = "";
     } else {
       axios
-        .post(`${API_URL}${videoId}/comments`, submitComment, config)
+        .post(`${API_URL}${videoId}/comments`, formValues, config)
         .then((response) => {
           populateIdState();
         });
@@ -130,6 +137,8 @@ const VideoDetailsPage = (props) => {
         videosGroup={videosGroup}
         videoId={selectedVideo.id}
         deleteHandler={deleteHandler}
+        handleCommentInputChange={handleCommentInputChange}
+        formValues={formValues}
       />
     </div>
   );

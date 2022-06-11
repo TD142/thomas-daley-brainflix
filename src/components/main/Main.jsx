@@ -12,6 +12,8 @@ export const Main = ({
   videosGroup,
   deleteHandler,
   videoId,
+  handleCommentInputChange,
+  formValues,
 }) => {
   return (
     <div>
@@ -20,7 +22,11 @@ export const Main = ({
       <main className="main">
         <div className="main__wrapper">
           <Video video={selectedVideo} />
-          <Form onSubmitHandler={onSubmitHandler} />
+          <Form
+            onSubmitHandler={onSubmitHandler}
+            handleCommentInputChange={handleCommentInputChange}
+            formValues={formValues}
+          />
 
           <Comments
             deleteHandler={deleteHandler}
