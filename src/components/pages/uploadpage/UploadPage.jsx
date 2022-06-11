@@ -44,6 +44,11 @@ export const UploadPage = (props) => {
     toast("Upload Complete!");
 
     setTimeout(reDirect, 1000);
+
+    setFormValues((values) => ({
+      title: "",
+      description: "",
+    }));
   };
 
   return (

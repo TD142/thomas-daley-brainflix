@@ -76,8 +76,6 @@ const VideoDetailsPage = (props) => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    const clearComment = document.getElementById("addComment");
-
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -92,16 +90,18 @@ const VideoDetailsPage = (props) => {
         .then((response) => {
           populateHomeState();
         });
-      clearComment.value = "";
     } else {
       axios
         .post(`${API_URL}${videoId}/comments`, formValues, config)
         .then((response) => {
           populateIdState();
         });
-
-      clearComment.value = "";
     }
+
+    setformValues((values) => ({
+      ...values,
+      comment: "",
+    }));
   };
 
   // ** onclick event passes up video comment id and pairs this with match paramater to target video for deletion.
