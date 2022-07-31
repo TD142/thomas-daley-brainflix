@@ -1,3 +1,8 @@
+
+## About
+
+Academic project demonstrating working with API's. Comments can be posted to each videos API, as well as deleted. On the about page there is a mock of posting a new video to the API. Click on the video in the aside to change video.
+
 ## Available Scripts
 
 In the project directory, you can run:
